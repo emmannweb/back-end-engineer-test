@@ -1,11 +1,19 @@
 ### - 2 Microservicos de NESTJS baseado em event com RabbitMQ
-##### - Os Microsserviços são completamente isolados de acordo com a requisição, usando Docker e Docker compose, Swagger, Nest, MongoDB, RabbitMQ.
-##### - Algoritmos para receber, tratar, transformar e formatar os batches de 1.0000 no total de 10.000, a ser enviado a cada 1 segundo, seguindo a requisição para cadastro desses batches no segundo Microsserviço no Mongo DB.
+
+##### - Os Microserviços são completamente isolados de acordo com a requisição, usando Docker e Docker compose, Swagger, Nest, MongoDB, RabbitMQ.
+
+##### - Algoritmos para receber, tratar, transformar e formatar os batches de 1.0000 no total de 10.000, a ser enviado a cada 1 segundo, seguindo a requisição para cadastro desses batches no segundo Microserviço no Mongo DB.
+
 ##### - Fazer upload do arquivo CSV, com Validação (somente arquivo CSV) e tratamentos de erros.
 
 ![My Image](images/swagger.png)
 
 ![My Image](images/logs-proccessing.png)
+
+### - Instrucoes
+
+##### - Criar um arquivo .env no raiz da pasta e colocar as
+
 # Desafio Engenheiro Back-End Pleno 👩‍💻
 
 Agradecemos seu interesse em se tornar parte da nossa equipe!
@@ -69,7 +77,7 @@ O seu papel é desenvolver uma aplicação que seja capaz de:
 ### Etapas:
 
 1. Leitura de Dados (Aplicação 1):
-   
+
 - Ler o arquivo .csv com 10 mil linhas de maneira eficiente, evitando carregar o arquivo inteiro na memória de uma vez.
 - Processar os dados para garantir sua integridade (tratar dados nulos, duplicados, etc.).
 - Implementar uma lógica de envio dos dados em batches de 1000 registros por segundo para a segunda aplicação.
