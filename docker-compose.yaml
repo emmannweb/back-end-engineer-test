@@ -1,0 +1,71 @@
+services:
+  database: 
+    image: "mongo"
+    restart: always
+    container_name: mongo-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodata:/mongodata
+    networks:
+      - backend
+      
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+        test: [ "CMD", "rabbitmqctl", "status"]
+        interval: 5s
+        timeout: 20s
+        retries: 5
+    networks:
+      - backend
+
+  app-consumer:
+    build: ./application
+    container_name: consumer
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - RABBIT_URI=${RABBIT_URI}
+    depends_on:
+      - database
+      - rabbitmq
+    networks:
+      - backend
+
+  app-producer:
+    build: ./appproducer
+    container_name: producer
+    restart: always
+    ports:
+      - "3002:3002"
+    depends_on:
+      - database
+      - rabbitmq
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mongodata:
+    driver: local
+  rabbit_data:
+    driver: local
