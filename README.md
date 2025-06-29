@@ -1,8 +1,8 @@
-### - 2 Microservicos de NESTJS baseado em event com RabbitMQ
+### - 2 Microservicos de NESTJS baseados em event com RabbitMQ
 
 ##### - Os Microserviços são completamente isolados de acordo com a requisição, usando Docker e Docker compose, Swagger, Nest, MongoDB, RabbitMQ.
 
-##### - Algoritmos para receber, tratar, transformar e formatar os batches de 1.000 no total de 10.000, a ser enviado a cada 1 segundo, seguindo a requisição para cadastro desses batches no segundo Microserviço no Mongo DB.
+##### - Algoritmos para receber, tratar, transformar e formatar os batches de 1.000 no total de 10.000, a ser enviado a cada 1 segundo, segundo a requisição para cadastro desses batches no segundo Microserviço no Mongo DB.
 
 ##### - Fazer upload do arquivo CSV, com Validação (somente arquivo CSV) e tratamentos de erros.
 
