@@ -10,9 +10,41 @@
 
 ![My Image](images/logs-proccessing.png)
 
-### - Instrucoes
+### - Instruções
 
-##### - Criar um arquivo  no raiz da pasta e colocar as
+##### - Criar um arquivo .env no raiz da pasta e colocar as credencias:
+
+## Variáveis ​​de ambiente
+`DB_USER`
+`DB_PASSWORD`
+`DB_NAME`
+`RABBIT_URI`
+`CSV_PROCESS_QUEUE`
+
+## Instalação
+
+Baixe a pasta Github back-end-engineer-test (deve ter o docker instalado)
+
+```bash
+  cd back-end-engineer-test 
+  RUN  docker compose up -d
+```
+
+```bash
+  Swagger
+  http://localhost:3000/api
+```
+
+```bash
+  RabbitMQ user:guest, password:guest
+  http://localhost:15672
+```
+
+```bash
+  POST REQUEST / UPLOAD CSV FILE
+  http://localhost:3000/create/batch
+```
+
 
 # Desafio Engenheiro Back-End Pleno 👩‍💻
 
