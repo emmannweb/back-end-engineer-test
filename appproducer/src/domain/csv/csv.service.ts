@@ -7,8 +7,8 @@ import {
 import { createReadStream } from 'fs';
 import { parse } from 'csv-parse';
 import { ClientProxy } from '@nestjs/microservices';
-import { DataBatchInterface } from 'src/common/interfaces/dataBatchInterface';
-import { PRODUCERS_SERVICE } from 'src/common/constants/producer_service';
+import { DataBatchInterface } from '../../common/interfaces/dataBatchInterface';
+import { PRODUCERS_SERVICE } from '../../common/constants/producer_service';
 
 @Injectable()
 export class CsvProcessorService {

@@ -9,7 +9,7 @@ export class Application {
   state: string;
 
   @Prop()
-  quantity: string;
+  quantity: number;
 }
 
 export const ApplicationSchema = SchemaFactory.createForClass(Application);

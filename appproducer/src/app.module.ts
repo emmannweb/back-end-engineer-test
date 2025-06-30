@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ProducerModule } from './producer/producer.module';
-import { CsvModule } from './domain/csv/csv.module';
+import { ApplicationModule } from './application/application.module';
+import { DomainModule } from './domain/domain.module';
 
 @Module({
-  imports: [ProducerModule, CsvModule],
+  imports: [ApplicationModule, DomainModule],
   controllers: [],
   providers: [],
 })

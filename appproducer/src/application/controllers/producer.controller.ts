@@ -7,7 +7,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ProducerService } from 'src/producer/producer.service';
+import { ApplicationService } from '../application.service';
 import { diskStorage } from 'multer';
 import {
   ApiBody,
@@ -20,7 +20,7 @@ import {
 export class ProducerController {
   private readonly logger = new Logger(ProducerController.name);
 
-  constructor(private readonly producerService: ProducerService) {}
+  constructor(private readonly applicationService: ApplicationService) {}
 
   @ApiOperation({ summary: 'Upload CSV file Endpoint' })
   @ApiConsumes('multipart/form-data')
@@ -60,7 +60,7 @@ export class ProducerController {
     file: Express.Multer.File,
   ) {
     try {
-      let res = await this.producerService.generateBatch(file.path);
+      let res = await this.applicationService.generateBatch(file.path);
       this.logger.log(`${res}`);
       return 'File was processed successfully!';
     } catch (error) {

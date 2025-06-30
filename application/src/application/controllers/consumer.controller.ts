@@ -1,4 +1,4 @@
-import { CreateApplicationDto } from '@common/dto/create-application-dto';
+import { CreateApplicationDto } from '../../common/dto/create-application-dto';
 import { ApplicationService } from '../application.service';
 import { Controller, Logger } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';

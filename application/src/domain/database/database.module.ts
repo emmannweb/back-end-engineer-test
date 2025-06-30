@@ -7,7 +7,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        uri: 'mongodb://test:test!123@mongo-db:27017/csvprocess?retryWrites=true&writeConcern=majority&authSource=admin', // configService.get<string>('MONGODB_URI'),
+        uri: 'mongodb://test:test!123@mongo-db:27017/csvprocess?retryWrites=true&writeConcern=majority&authSource=admin', // docker // configService.get<string>('MONGODB_URI'),
+        //uri: 'mongodb://localhost:27017/csvprocessnew', // configService.get<string>('MONGODB_URI'),
       }),
       inject: [ConfigService],
     }),
